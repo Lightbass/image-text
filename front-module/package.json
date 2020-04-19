@@ -23,7 +23,8 @@
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26",
-    "cropperjs": "^1.5.6"
+    "cropperjs": "^1.5.6",
+    "file-saver": "^2.0.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.2",

@@ -14,7 +14,7 @@ public class Main {
         String[] substrings = originalString.split("\n");
 
         int fontSize = 9;
-        Font font = getFontFromFile("rus-small.ttf", fontSize);
+        Font font = getFontFromFile("font/rus-small.ttf", fontSize);
         int pictureSize = 60;
         int textWidth = Arrays.stream(substrings).mapToInt(String::length).max().getAsInt() * 6;
         int textHeight = (substrings.length + 1) * fontSize;

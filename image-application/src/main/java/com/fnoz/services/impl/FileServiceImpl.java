@@ -2,6 +2,7 @@ package com.fnoz.services.impl;
 
 import com.fnoz.services.FileService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,6 +12,7 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,6 +28,10 @@ public class FileServiceImpl implements FileService {
 
     @Value("${spring.images_dir}")
     private String IMAGES_DIR;
+
+    @Value(value = "classpath:font/rus-small.ttf")
+    private Resource rusFont;
+
     private Path rootLocation;
 
     public FileServiceImpl() {
@@ -46,22 +52,23 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public void saveImageText(MultipartFile file, String text, Integer x, Integer y, Integer size) {
+    public byte[] saveImageText(MultipartFile file, String text, Integer x, Integer y, Integer size) {
         try {
             File imageFile = new File("original.png");
-            drawImage(text, file.getInputStream(), size, x, y);
+            return drawImage(text, file.getInputStream(), size, x, y);
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
+        return null;
     }
 
-    private void drawImage(String originalString, InputStream imageFile, Integer size, Integer x, Integer y)
+    private byte[] drawImage(String originalString, InputStream imageFile, Integer size, Integer x, Integer y)
             throws IOException {
 
         String[] substrings = originalString.split("\n");
 
         int fontSize = 9;
-        Font font = getFontFromFile("rus-small.ttf", fontSize);
+        Font font = getFontFromFile(this.rusFont.getInputStream(), fontSize);
         int pictureSize = 60;
         int textWidth = Arrays.stream(substrings).mapToInt(String::length).max().getAsInt() * 6;
         int textHeight = (substrings.length + 1) * fontSize;
@@ -73,7 +80,6 @@ public class FileServiceImpl implements FileService {
         g.fillRect(0, 0, textImage.getWidth(), textImage.getHeight());
         g.setColor(Color.black);
         g.setFont(font);
-        // g.setFont(new Font("ARI", Font.PLAIN, 9));
         int textY = 0;
         for (String str: originalString.split("\n")) {
             g.drawString(str, 1, textY += g.getFontMetrics().getHeight());
@@ -107,11 +113,12 @@ public class FileServiceImpl implements FileService {
         this.drawImageByBlackPixel(textWidth, textHeight, pictureImageGraphics, textImage, scaledImageFrame);
 
         ImageIO.write(pictureImage,"png", new File("lox.png"));
+        return this.getBytesFromImage(pictureImage);
     }
 
-    private Font getFontFromFile(String fileName, int size) {
+    private Font getFontFromFile(InputStream inputStream, int size) {
         try {
-            Font font = Font.createFont(Font.PLAIN, new File(fileName));
+            Font font = Font.createFont(Font.PLAIN, inputStream);
             font = font.deriveFont(Font.PLAIN, size);
             return font;
         } catch (FontFormatException | IOException ffe) {
@@ -133,8 +140,8 @@ public class FileServiceImpl implements FileService {
                 }
             }
         }
-        maxX+=3;
-        maxY+=3;
+        maxX+=2;
+        maxY+=4;
         return new int[] { maxX, maxY };
     }
 
@@ -149,5 +156,15 @@ public class FileServiceImpl implements FileService {
                 }
             }
         }
+    }
+
+    private byte[] getBytesFromImage(BufferedImage image) {
+        try(ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            ImageIO.write(image, "jpg", baos);
+            return baos.toByteArray();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        return null;
     }
 }

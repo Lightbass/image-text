@@ -1,9 +1,21 @@
 import Cropper from 'cropperjs/dist/cropper.esm.js';
 
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Host,
+  HostListener,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 
 @Component({
-  selector: 'gm-bo-cropper',
+  selector: 'app-bo-cropper',
   templateUrl: './bo-cropper.component.html',
   styleUrls: ['./bo-cropper.component.scss']
 })
@@ -17,9 +29,7 @@ export class BoCropperComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() imageUrl: string;
   aspectRation = 1;
 
-  @Output() croppedImageEvent = new EventEmitter<any>();
-  @Output() closeModalEvent = new EventEmitter();
-  @Output() imageWasLoaded: EventEmitter<void> = new EventEmitter<void>();
+  @Output() cropImageEvent = new EventEmitter<any>();
 
   constructor() {
   }
@@ -62,7 +72,8 @@ export class BoCropperComponent implements OnInit, AfterViewInit, OnDestroy {
       x: Math.ceil(left * kWidth),
       y: Math.ceil(top * kHeight)
     };
-    console.log(crop);
+
+    this.cropImageEvent.emit(crop);
 
 
     // this.loader.loadCrop(crop, this.imageId)
@@ -72,8 +83,22 @@ export class BoCropperComponent implements OnInit, AfterViewInit, OnDestroy {
     //   });
   }
 
+  @HostListener('document:keydown', ['$event'])
+  enableDrag(event) {
+    if (event.ctrlKey) {
+      this.cropper.setDragMode('move');
+    }
+  }
+
+  @HostListener('document:keyup', ['$event'])
+  disableDrag(event) {
+    if (event.ctrlKey) {
+      this.cropper.setDragMode('none');
+    }
+  }
+
   closeModal() {
-    this.closeModalEvent.emit();
+    // this.closeModalEvent.emit();
   }
 
   cropperTouchStart(event) {

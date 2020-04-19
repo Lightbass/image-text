@@ -3,21 +3,27 @@
     <p></p>
     <div class="login d-inline-block row width-2-3">
       <div class="panel panel-default">
-        <div class="panel-heading">Управление {{ text }}</div>
+        <div class="panel-heading">Управление</div>
         <div class="panel-body">
-          <div class="form-horizontal">
-            <button class="btn btn-primary btn-primary-s" (click)="executeButtonClick()">Запустить процесс</button>
-            <button class="btn btn-primary btn-primary-s" (click)="monitor()">Монитор</button>
-          </div>
-          <textarea #textArea64 readonly *ngIf="model64">{{model64.output}}</textarea>
+          <ng-container *ngIf="mode === 'text'">
+            <div class="panel-heading" style="color: orange">Введите текст</div>
+            <textarea [(ngModel)]="text"></textarea>
+            <div class="form-horizontal">
+              <button class="btn btn-primary btn-primary-s" (click)="cropMode()">Загрузка пикчи</button>
+            </div>
+          </ng-container>
+
           <input #imageFile
+                 *ngIf="mode === 'crop'"
                  (change)="localFile($event)"
                  class="form__download-input"
                  type="file"
                  name="first_page_photo"
                  accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
         </div>
-        <gm-bo-cropper *ngIf="url" [imageUrl]="url"></gm-bo-cropper>
+        <app-bo-cropper *ngIf="url"
+                        [imageUrl]="url"
+                        (cropImageEvent)="onFileChange($event)"></app-bo-cropper>
       </div>
     </div>
   </div>

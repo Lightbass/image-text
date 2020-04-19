@@ -3,6 +3,8 @@
        (touchstart)="cropperTouchStart($event)"
        id="cropimage"
        class="cropImage"
+       (keydown)="enableDrag($event)"
+       (keyup)="disableDrag($event)"
        src="{{ imageUrl }}"
        alt="">
 </div>
