@@ -1,0 +1,263 @@
+$green-success: #5cb821;
+$red-error: #a94442;
+
+html {
+  position: relative;
+  overflow-y: auto;
+  //height: 100%;
+}
+
+body {
+  //padding-bottom: 30px;
+  background-size: 609px 235px;
+  min-height: calc(100% - 30px);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "HelveticaNeue", Arial, sans-serif
+}
+
+.container-fluid {
+  padding-left: 15px;
+  padding-right: 15px;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.row {
+  display: block;
+  letter-spacing: -0.15px;
+  line-height: 20px;
+}
+
+.panel.panel-default {
+  //max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.05);
+}
+
+input {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.15px;
+  text-rendering: optimizeLegibility;
+}
+
+.panel-default {
+  //max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.05);
+  border-color: #ddd;
+  > .panel-heading {
+    color: #eda35e;
+    padding: 6px 20px;
+    background: transparent;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+  }
+}
+
+.panel {
+  margin-bottom: 20px;
+  background-color: #333333;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 3px;
+  &-body {
+    padding: 15px;
+  }
+}
+
+.form-horizontal {
+  padding: 0 0 15px 0;
+  > * {
+    display: inline-block;
+  }
+  :last-child {
+    margin: 0 0 0 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    text-align: right;
+    margin-bottom: 0;
+    padding-right: 20px;
+    padding-top: 7px;
+  }
+}
+
+label {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #4d5157;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid rgba(28, 33, 36, 0.18);
+  border-radius: 3px;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.width {
+  &-1-2 {
+    width: 50%;
+  }
+  &-1-3 {
+    width: 33.3%;
+  }
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 3px;
+  //&.btn-primary-s {
+  //  color: white;
+  //  background-color: $green-success;
+  //  border-color: $green-success;
+  //}
+}
+
+img.logo {
+  max-width: calc(100vw - 30px);
+}
+
+.error-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: $red-error;
+}
+
+.main-page {
+  position: relative;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: rgb(243, 243, 245);
+  &.shadow {
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      background: rgba(#000, .5);
+    }
+  }
+  @media(min-width:1280px) {
+    width: 35vw; // detects whether viewport's larger than 1280px breadthwise. fills (percent from viewport current breadth)vw (as acronym for viewport width)
+    // max-width: 1200px; that's the second option. no stretching allowed. merely fixed max-width
+  }
+}
+
+//@import "../../assets/scss/variables";
+textarea {
+  margin-top: 10px;
+  width: 45vw;
+  height: 60vh;
+  resize: none;
+  color: #abb2bf;
+  background: #1e2126;
+}
+
+.markup-item {
+  display: inline-block;
+  width: 45vw;
+}
+
+.markup-status {
+  color: #eda35e;
+}
+
+.log-area {
+  :last-child {
+    margin: 0 0 0 10px;
+  }
+}
+
+input {
+  box-shadow: none;
+  border: 2px #d5d5d5;
+  &:hover {
+    box-shadow: none;
+    border-color: #fe5300;
+  }
+  &:focus {
+    box-shadow: none;
+    border-color: #fe5300;
+  }
+}
+
+.auth-wrap {
+  width: 100vw;
+  justify-content: center;
+  background: url('assets/images/elbrus.jpg') no-repeat top;
+  background-size: cover;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+}
+
+.btn-primary {
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  //background-color: #2051b2;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 1);
+  border-width: 0;
+  margin: 0 10px 0 0;
+  padding: 0;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.29);
+
+  &:hover {
+    //background-color: #fe5300;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: none;
+    &:active {
+      transition:all 0.1s;
+      background-color: #AB3A00;
+      box-shadow: none;
+    }
+  }
+}
+
+.error-block {
+  color: #fe5300;
+}
+
