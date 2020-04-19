@@ -1,77 +1,77 @@
 //@import "../../assets/scss/variables";
-textarea {
-  margin-top: 10px;
-  width: 45vw;
-  height: 60vh;
-  resize: none;
-  color: #abb2bf;
-  background: #1e2126;
-}
-
-.markup-item {
-  display: inline-block;
-  width: 45vw;
-}
-
-.markup-status {
-  color: #eda35e;
-}
-
-.log-area {
-  :last-child {
-    margin: 0 0 0 10px;
-  }
-}
-
-input {
-  box-shadow: none;
-  border: 2px #d5d5d5;
-  &:hover {
-    box-shadow: none;
-    border-color: #fe5300;
-  }
-  &:focus {
-    box-shadow: none;
-    border-color: #fe5300;
-  }
-}
-
-.auth-wrap {
-  width: 100vw;
-  justify-content: center;
-  background: url('../assets/images/elbrus.jpg') no-repeat top;
-  background-size: cover;
-  align-items: center;
-  height: 100vh;
-  position: fixed;
-}
-
-.btn-primary {
-  width: 200px;
-  height: 40px;
-  font-size: 20px;
-  //background-color: #2051b2;
-  background-color: rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 1);
-  border-width: 0;
-  margin: 0 10px 0 0;
-  padding: 0;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.29);
-  &:hover {
-    //background-color: #fe5300;
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: none;
-    &:active {
-      transition:all 0.1s;
-      background-color: #AB3A00;
-      box-shadow: none;
-    }
-  }
-}
-
-.error-block {
-  color: #fe5300;
-}
-
-
-
+//textarea {
+//  margin-top: 10px;
+//  width: 45vw;
+//  height: 60vh;
+//  resize: none;
+//  color: #abb2bf;
+//  background: #1e2126;
+//}
+//
+//.markup-item {
+//  display: inline-block;
+//  width: 45vw;
+//}
+//
+//.markup-status {
+//  color: #eda35e;
+//}
+//
+//.log-area {
+//  :last-child {
+//    margin: 0 0 0 10px;
+//  }
+//}
+//
+//input {
+//  box-shadow: none;
+//  border: 2px #d5d5d5;
+//  &:hover {
+//    box-shadow: none;
+//    border-color: #fe5300;
+//  }
+//  &:focus {
+//    box-shadow: none;
+//    border-color: #fe5300;
+//  }
+//}
+//
+//.auth-wrap {
+//  width: 100vw;
+//  justify-content: center;
+//  background: url('../assets/images/elbrus.jpg') no-repeat top;
+//  background-size: cover;
+//  align-items: center;
+//  height: 100vh;
+//  position: fixed;
+//}
+//
+//.btn-primary {
+//  width: 200px;
+//  height: 40px;
+//  font-size: 20px;
+//  //background-color: #2051b2;
+//  background-color: rgba(255, 255, 255, 0.3);
+//  color: rgba(255, 255, 255, 1);
+//  border-width: 0;
+//  margin: 0 10px 0 0;
+//  padding: 0;
+//  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.29);
+//  &:hover {
+//    //background-color: #fe5300;
+//    background-color: rgba(255, 255, 255, 0.5);
+//    box-shadow: none;
+//    &:active {
+//      transition:all 0.1s;
+//      background-color: #AB3A00;
+//      box-shadow: none;
+//    }
+//  }
+//}
+//
+//.error-block {
+//  color: #fe5300;
+//}
+//
+//
+//

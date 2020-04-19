@@ -1,0 +1,75 @@
+$black: #000;
+$white: #fff;
+$red: #ff6f60;
+$green: #b6d7a8;
+$orange: #ff700a;
+$semi-orange: #f87058;
+$yellow: #ffee00;
+$gray: #c1c1c1;
+$dark-gray: #6d726f;
+$light-gray: #939392;
+$semi-gray: #f5f5f5;
+$gray-bg: #ededed;
+$half-gray: #818181;
+$half-gray-light:#808080;
+$semi-half-gray: #d9d9d9;
+$orange: #f6b26b;
+$blue: #055ebc;
+
+//border
+$border-gray: #e3e3e3;
+$border-black: #343434;
+$asphalt: #343434;
+
+//BO
+$background-bo: #1a1919;
+$background-bo__item: #292929;
+
+
+//Fonts
+$ff-main: 'Calibri',sans-serif;
+$ff-medium: 'TriviaSerifMedium';
+$ff-regular: 'TriviaSerifRegular';
+$ff-book: 'TriviaSerifBook';
+
+
+//progress-bar
+$progress: 0;
+$progressbar-horiz: $border-gray;
+$charts-animation: .7s;
+
+//h1-h6
+$header-color: #23282d;
+
+//disabled-btn
+$disabled-btn: #ededed;
+$disabled-clr: #bababa;
+$disabled-input: #818181;
+
+//establishment status color
+$published: #469C2F;
+$waiting: #DD822E;
+$abandoned: #70140B;
+$out-of-selection: #EDD399;
+$closed : #333333;
+
+//product color
+$food: #7f9c4c;
+$wine:#bb545a;
+$liquor:#857450;
+
+//review status color
+$to-investigate: #d3b36c;
+$to-validate: #dd8326;
+$to-translate: #6e9ac8;
+$ready: #a7e18e;
+$review-published: #16aa09;
+$review-abandoned: #a01a0e;
+$hidden: #c6d1d6;
+$started: #9b9b9b;
+
+//establishment color
+$wine: #bb545a;
+$artisan: #658bb0;
+$liquor: #857450;
+$food: #7f9c4c;

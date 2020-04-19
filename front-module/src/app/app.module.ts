@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppService } from './app.service';
 import { MainComponent } from './main/main.component';
+import { BoCropperComponent } from './bo-cropper/bo-cropper.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    BoCropperComponent
   ],
   imports: [
     BrowserModule,

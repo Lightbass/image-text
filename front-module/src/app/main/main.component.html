@@ -9,24 +9,15 @@
             <button class="btn btn-primary btn-primary-s" (click)="executeButtonClick()">Запустить процесс</button>
             <button class="btn btn-primary btn-primary-s" (click)="monitor()">Монитор</button>
           </div>
-          <div class="markup-item">
-            <strong class="markup-status" *ngIf="model32">32-bit jar status: {{model32.status}}</strong>
-          </div>
-          <div class="markup-item">
-            <strong class="markup-status" *ngIf="model64">64-bit jar status: {{model64.status}}</strong>
-          </div>
-          <div class="log-area">
-            <textarea #textArea32 readonly *ngIf="model32">{{model32.output}}</textarea>
-            <textarea #textArea64 readonly *ngIf="model64">{{model64.output}}</textarea>
-          </div>
+          <textarea #textArea64 readonly *ngIf="model64">{{model64.output}}</textarea>
           <input #imageFile
                  (change)="localFile($event)"
                  class="form__download-input"
                  type="file"
                  name="first_page_photo"
                  accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
-          <img [src]="url" height="200">
         </div>
+        <gm-bo-cropper *ngIf="url" [imageUrl]="url"></gm-bo-cropper>
       </div>
     </div>
   </div>

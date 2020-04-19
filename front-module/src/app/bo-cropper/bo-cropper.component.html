@@ -1,0 +1,16 @@
+<div class="modal__item">
+  <img #cropImage
+       (touchstart)="cropperTouchStart($event)"
+       id="cropimage"
+       class="cropImage"
+       src="{{ imageUrl }}"
+       alt="">
+</div>
+<div class="modal__item-buttons">
+  <button class="modal__item-btn gray" type="button" (click)="closeModal()">
+    Cancel
+  </button>
+  <button class="modal__item-btn" type="button" (click)="getCroppedData()">
+      Save
+  </button>
+</div>
