@@ -29,7 +29,7 @@ public class FileServiceImpl implements FileService {
     @Value("${spring.images_dir}")
     private String IMAGES_DIR;
 
-    @Value(value = "classpath:font/rus-small.ttf")
+    @Value(value = "classpath:font/rus-small2.ttf")
     private Resource rusFont;
 
     private Path rootLocation;
